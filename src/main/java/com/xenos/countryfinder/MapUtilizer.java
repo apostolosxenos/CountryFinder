@@ -3,7 +3,7 @@ package com.xenos.countryfinder;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import static java.util.stream.Collectors.toMap;
+import java.util.stream.Collectors;
 
 public class MapUtilizer {
 
@@ -12,7 +12,7 @@ public class MapUtilizer {
                 .entrySet()
                 .stream()
                 .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
-                .collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2, LinkedHashMap::new));
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2, LinkedHashMap::new));
 
         return sortedMap;
     }
